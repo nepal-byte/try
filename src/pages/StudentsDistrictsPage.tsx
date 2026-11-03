@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PlaceholderImage from '../components/PlaceholderImage';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface District {
   id: number;
@@ -245,6 +245,58 @@ Balara is a municipality in Sarlahi District in Nepal's southern Terai plains. T
   }
 ];
 
+// Image Carousel Component
+function ImageCarousel({ imageCount, districtName }: { imageCount: number; districtName: string }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % imageCount);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + imageCount) % imageCount);
+  };
+
+  if (imageCount === 1) {
+    return (
+      <PlaceholderImage
+        label={`${districtName} - Image 1`}
+        className="aspect-[4/3] w-full rounded-lg"
+      />
+    );
+  }
+
+  return (
+    <div className="relative">
+      <PlaceholderImage
+        label={`${districtName} - Image ${currentImageIndex + 1}`}
+        className="aspect-[4/3] w-full rounded-lg"
+      />
+      
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevImage}
+        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all"
+        aria-label="Previous image"
+      >
+        <ChevronLeft size={20} />
+      </button>
+      <button
+        onClick={nextImage}
+        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all"
+        aria-label="Next image"
+      >
+        <ChevronRight size={20} />
+      </button>
+
+      {/* Image Counter */}
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/70 text-white text-xs px-3 py-1 rounded-full">
+        {currentImageIndex + 1} / {imageCount}
+      </div>
+    </div>
+  );
+}
+
 export default function StudentsDistrictsPage() {
   const [openDistrict, setOpenDistrict] = useState<number | null>(null);
 
@@ -257,21 +309,26 @@ export default function StudentsDistrictsPage() {
       {/* Hero Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-neutral-50">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="max-w-4xl">
-            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-              <div className="w-8 sm:w-12 h-px bg-black" />
-              <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">Our Students</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div>
+              <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <div className="w-8 sm:w-12 h-px bg-black" />
+                <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">Our Students</span>
+              </div>
+              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] mb-6">
+                Our Students Come from<br />
+                <span className="text-neutral-400">Different Districts Across Nepal</span>
+              </h1>
+              <p className="text-neutral-600 text-base sm:text-lg leading-relaxed">
+                Tharlam Manjushree School is home to young monks from different parts of Nepal. According to our current records, our students come from 21 districts, with Sindhupalchok District contributing the largest number, with 18 students from different villages. Other students come from districts including Okhaldhunga, Dolpa, Kavrepalanchok, Makwanpur, and many others.
+              </p>
+              <p className="text-neutral-600 text-base sm:text-lg leading-relaxed mt-4">
+                Each student brings a unique background, culture, and tradition from their home community. Together, they form a diverse monastic community united by education, Buddhist teachings, compassion, and wisdom.
+              </p>
             </div>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] mb-6">
-              Our Students Come from<br />
-              <span className="text-neutral-400">Different Districts Across Nepal</span>
-            </h1>
-            <p className="text-neutral-600 text-base sm:text-lg leading-relaxed">
-              Tharlam Manjushree School is home to young monks from different parts of Nepal. According to our current records, our students come from 21 districts, with Sindhupalchok District contributing the largest number, with 18 students from different villages. Other students come from districts including Okhaldhunga, Dolpa, Kavrepalanchok, Makwanpur, and many others.
-            </p>
-            <p className="text-neutral-600 text-base sm:text-lg leading-relaxed mt-4">
-              Each student brings a unique background, culture, and tradition from their home community. Together, they form a diverse monastic community united by education, Buddhist teachings, compassion, and wisdom.
-            </p>
+            <div>
+              <PlaceholderImage label="Our Students" className="aspect-[4/3] w-full rounded-2xl sm:rounded-3xl" />
+            </div>
           </div>
         </div>
       </section>
@@ -305,27 +362,28 @@ export default function StudentsDistrictsPage() {
                   />
                 </button>
 
-                {/* Accordion Content */}
+                {/* Accordion Content - Side by Side Layout */}
                 {openDistrict === district.id && (
                   <div className="p-6 bg-neutral-50 border-t border-neutral-200">
-                    {/* Images Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                      {Array.from({ length: district.imageCount }).map((_, idx) => (
-                        <PlaceholderImage
-                          key={idx}
-                          label={`${district.name} - Image ${idx + 1}`}
-                          className="aspect-[4/3] w-full rounded-lg"
-                        />
-                      ))}
-                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                      {/* Text Column */}
+                      <div className="order-2 lg:order-1">
+                        <div className="prose prose-neutral max-w-none">
+                          {district.content.split('\n\n').map((paragraph, idx) => (
+                            <p key={idx} className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-4">
+                              {paragraph}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
 
-                    {/* Content */}
-                    <div className="prose prose-neutral max-w-none">
-                      {district.content.split('\n\n').map((paragraph, idx) => (
-                        <p key={idx} className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-4">
-                          {paragraph}
-                        </p>
-                      ))}
+                      {/* Image Column with Carousel */}
+                      <div className="order-1 lg:order-2">
+                        <ImageCarousel 
+                          imageCount={district.imageCount} 
+                          districtName={district.name} 
+                        />
+                      </div>
                     </div>
                   </div>
                 )}

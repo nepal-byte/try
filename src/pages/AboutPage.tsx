@@ -1,4 +1,8 @@
 import PlaceholderImage from '../components/PlaceholderImage';
+import WhatGuidesSection from '../components/WhatGuidesSection';
+import WhatWeDoSection from '../components/WhatWeDoSection';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -109,6 +113,28 @@ export default function AboutPage() {
             </div>
             <div className="clear-both"></div>
           </div>
+        </div>
+      </section>
+
+      {/* Our Guidance */}
+      <WhatGuidesSection />
+
+      {/* What We Do */}
+      <WhatWeDoSection />
+
+      {/* CTA */}
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-black text-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 text-center">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 sm:mb-6">
+            Want to learn more?
+          </h2>
+          <p className="text-neutral-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 px-4">
+            Visit our campus, meet our teachers, and discover how Tharlam Manjushree School can shape your child's future.
+          </p>
+          <Link to="/contact" className="group inline-flex items-center gap-2 bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-semibold hover:bg-neutral-100 transition-all">
+            Contact Us
+            <ArrowUpRight size={14} className="sm:w-4 sm:h-4" />
+          </Link>
         </div>
       </section>
     </div>

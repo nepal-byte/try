@@ -19,7 +19,7 @@ export default function Breadcrumb() {
   if (location.pathname === '/') return null;
 
   return (
-    <div className="relative h-28 sm:h-36 md:h-40 lg:h-48 overflow-hidden mt-16 md:mt-24">
+    <div className="relative h-28 sm:h-36 md:h-40 lg:h-48 overflow-hidden mt-16 md:mt-20">
       <div className="absolute inset-0 bg-neutral-200" />
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative z-10 h-full flex items-end pb-3 sm:pb-4 md:pb-5">

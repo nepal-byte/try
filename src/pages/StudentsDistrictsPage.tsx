@@ -305,7 +305,7 @@ export default function StudentsDistrictsPage() {
   };
 
   return (
-    <div className="pt-16 md:pt-24">
+    <div>
       {/* Hero Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-neutral-50">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">

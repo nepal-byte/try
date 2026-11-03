@@ -307,56 +307,56 @@ export default function StudentsDistrictsPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-neutral-50">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
+      <section className="py-10 sm:py-20 md:py-24 lg:py-32 bg-neutral-50">
+        <div className="max-w-[1600px] mx-auto px-2 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-6">
                 <div className="w-8 sm:w-12 h-px bg-black" />
                 <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">Our Students</span>
               </div>
-              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] mb-6">
+              <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] mb-4 sm:mb-6">
                 Our Students Come from<br />
                 <span className="text-neutral-400">Different Districts Across Nepal</span>
               </h1>
-              <p className="text-neutral-600 text-base sm:text-lg leading-relaxed">
+              <p className="text-neutral-600 text-sm sm:text-lg leading-relaxed">
                 Tharlam Manjushree School is home to young monks from different parts of Nepal. According to our current records, our students come from 21 districts, with Sindhupalchok District contributing the largest number, with 18 students from different villages. Other students come from districts including Okhaldhunga, Dolpa, Kavrepalanchok, Makwanpur, and many others.
               </p>
-              <p className="text-neutral-600 text-base sm:text-lg leading-relaxed mt-4">
+              <p className="text-neutral-600 text-sm sm:text-lg leading-relaxed mt-3 sm:mt-4">
                 Each student brings a unique background, culture, and tradition from their home community. Together, they form a diverse monastic community united by education, Buddhist teachings, compassion, and wisdom.
               </p>
             </div>
             <div>
-              <PlaceholderImage label="Our Students" className="aspect-[4/3] w-full rounded-2xl sm:rounded-3xl" />
+              <PlaceholderImage label="Our Students" className="aspect-[4/3] w-full rounded-xl sm:rounded-3xl" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Accordion Section */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter leading-[1.05] mb-12">
+      <section className="py-10 sm:py-20 md:py-24 lg:py-32">
+        <div className="max-w-[1600px] mx-auto px-2 sm:px-6 lg:px-10">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter leading-[1.05] mb-8 sm:mb-12">
             Stories of the Villages of Our Young Monks
           </h2>
 
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             {districts.map((district) => (
               <div key={district.id} className="border border-neutral-200 rounded-xl overflow-hidden">
                 {/* Accordion Header */}
                 <button
                   onClick={() => toggleDistrict(district.id)}
-                  className="w-full flex items-center justify-between p-6 bg-white hover:bg-neutral-50 transition-colors text-left"
+                  className="w-full flex items-center justify-between p-3 sm:p-6 bg-white hover:bg-neutral-50 transition-colors text-left"
                 >
-                  <div className="flex items-center gap-4">
-                    <span className="font-display text-xl sm:text-2xl font-bold text-neutral-300">
+                  <div className="flex items-center gap-2 sm:gap-4">
+                    <span className="font-display text-lg sm:text-2xl font-bold text-neutral-300">
                       {String(district.id).padStart(2, '0')}
                     </span>
-                    <h3 className="font-display text-lg sm:text-xl font-bold">{district.name}</h3>
+                    <h3 className="font-display text-sm sm:text-xl font-bold">{district.name}</h3>
                   </div>
                   <ChevronDown
-                    size={24}
-                    className={`transform transition-transform ${
+                    size={20}
+                    className={`sm:w-6 sm:h-6 transform transition-transform ${
                       openDistrict === district.id ? 'rotate-180' : ''
                     }`}
                   />
@@ -364,13 +364,13 @@ export default function StudentsDistrictsPage() {
 
                 {/* Accordion Content - Side by Side Layout */}
                 {openDistrict === district.id && (
-                  <div className="p-6 bg-neutral-50 border-t border-neutral-200">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                  <div className="p-3 sm:p-6 bg-neutral-50 border-t border-neutral-200">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                       {/* Text Column */}
                       <div className="order-2 lg:order-1">
                         <div className="prose prose-neutral max-w-none">
                           {district.content.split('\n\n').map((paragraph, idx) => (
-                            <p key={idx} className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-4">
+                            <p key={idx} className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">
                               {paragraph}
                             </p>
                           ))}

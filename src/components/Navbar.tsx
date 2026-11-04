@@ -9,16 +9,16 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-0 md:top-[32px] left-0 right-0 z-50 bg-white border-b border-neutral-200">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="flex items-center justify-between h-16">
+        <div className="max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-6 lg:px-10">
+          <div className="flex items-center justify-between h-14 xs:h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-                <span className="text-white text-sm">☸</span>
+            <Link to="/" className="flex items-center gap-1.5 xs:gap-2">
+              <div className="w-7 h-7 xs:w-8 xs:h-8 bg-black rounded-full flex items-center justify-center">
+                <span className="text-white text-xs xs:text-sm">☸</span>
               </div>
-              <div className="hidden sm:block">
-                <div className="font-display text-sm font-bold">Tharlam Manjushree</div>
-                <div className="text-[10px] text-neutral-500">Community School</div>
+              <div className="hidden xs:block">
+                <div className="font-display text-xs xs:text-sm font-bold">Tharlam Manjushree</div>
+                <div className="text-[9px] xs:text-[10px] text-neutral-500">Community School</div>
               </div>
             </Link>
 

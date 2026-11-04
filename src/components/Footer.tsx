@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
     <footer className="bg-black text-white">
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-6 lg:px-10 py-8 xs:py-12 sm:py-16">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-6 xs:gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">

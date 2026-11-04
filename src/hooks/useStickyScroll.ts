@@ -1,10 +1,18 @@
 import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export function useStickyScroll() {
-  const elementsRef = useRef<Element[]>([]);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const location = useLocation();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    // Disconnect previous observer if exists
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    // Create new observer
+    observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -14,25 +22,30 @@ export function useStickyScroll() {
       },
       {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px',
+        rootMargin: '0px 0px -50px 0px',
       }
     );
 
-    // Observe all sticky animation elements
-    const stickyElements = document.querySelectorAll(
-      '.sticky-fade-in, .sticky-scale-in, .sticky-slide-left, .sticky-slide-right'
-    );
-    
-    stickyElements.forEach((el) => {
-      observer.observe(el);
-      elementsRef.current.push(el);
+    // Use requestAnimationFrame to ensure DOM is updated
+    const rafId = requestAnimationFrame(() => {
+      // Observe all sticky animation elements
+      const stickyElements = document.querySelectorAll(
+        '.sticky-fade-in, .sticky-scale-in, .sticky-slide-left, .sticky-slide-right'
+      );
+      
+      stickyElements.forEach((el) => {
+        observerRef.current?.observe(el);
+      });
     });
 
     return () => {
-      elementsRef.current.forEach((el) => {
-        observer.unobserve(el);
-      });
-      elementsRef.current = [];
+      cancelAnimationFrame(rafId);
+      
+      // Cleanup observer
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
     };
-  }, []);
+  }, [location.pathname]); // Re-run on route change
 }

@@ -25,7 +25,8 @@ function ScrollToTopOnRouteChange() {
 }
 
 function AppContent() {
-  useStickyScroll();
+  // Temporarily disabled to test if this fixes the blank page issue
+  // useStickyScroll();
   
   return (
     <>

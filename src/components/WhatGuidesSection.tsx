@@ -34,7 +34,7 @@ export default function WhatGuidesSection() {
   const currentItem = guidanceItems.find(item => item.id === activeItem);
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-neutral-50">
+    <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
       <div className="max-w-[1600px] mx-auto px-2 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-10 sm:mb-12 items-center">
           <div>
@@ -46,8 +46,20 @@ export default function WhatGuidesSection() {
               What Guides<br /><span className="text-neutral-400">Our Practice.</span>
             </h2>
           </div>
-          <div>
-            <PlaceholderImage label="Students in Activity" className="aspect-[16/10] w-full rounded-2xl sm:rounded-3xl" />
+          <div className="flex flex-wrap gap-2 sm:gap-3 justify-start lg:justify-end">
+            {guidanceItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveItem(item.id)}
+                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full font-display font-bold text-sm sm:text-base transition-all flex items-center justify-center ${
+                  activeItem === item.id
+                    ? 'bg-black text-white scale-110 shadow-lg'
+                    : 'bg-white text-neutral-400 border border-neutral-200 hover:border-black hover:text-black'
+                }`}
+              >
+                {String(item.id).padStart(2, '0')}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -67,22 +79,6 @@ export default function WhatGuidesSection() {
               {currentItem?.content}
             </p>
           </div>
-        </div>
-
-        <div className="flex flex-wrap gap-2 sm:gap-3 mt-12">
-          {guidanceItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => setActiveItem(item.id)}
-              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full font-display font-bold text-sm sm:text-base transition-all flex items-center justify-center ${
-                activeItem === item.id
-                  ? 'bg-black text-white scale-110 shadow-lg'
-                  : 'bg-white text-neutral-400 border border-neutral-200 hover:border-black hover:text-black'
-              }`}
-            >
-              {String(item.id).padStart(2, '0')}
-            </button>
-          ))}
         </div>
       </div>
     </section>

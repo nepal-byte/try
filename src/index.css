@@ -156,4 +156,74 @@
     transform: translateY(0) scale(1);
     pointer-events: auto;
   }
+
+  /* Sticky Scroll Animations */
+  .sticky-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .sticky-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .sticky-scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .sticky-scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .sticky-slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .sticky-slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .sticky-slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .sticky-slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Parallax Scroll Effect */
+  .parallax-slow {
+    transform: translateY(0);
+    transition: transform 0.1s linear;
+  }
+
+  /* Smooth Section Transitions */
+  section {
+    position: relative;
+  }
+
+  /* Sticky Header Enhancement */
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+  }
+
+  .sticky-header.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
 }

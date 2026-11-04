@@ -30,7 +30,7 @@ export default function ProgramsPage() {
       <section className="py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 sticky-slide-left">
               <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <div className="w-8 sm:w-12 h-px bg-black" />
                 <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">Academic Excellence</span>
@@ -41,7 +41,7 @@ export default function ProgramsPage() {
               <PlaceholderImage label="Classroom Learning" className="aspect-[16/10] w-full rounded-2xl sm:rounded-3xl mt-4" />
             </div>
             
-            <div className="lg:col-span-6 lg:col-start-7 space-y-8 sm:space-y-10">
+            <div className="lg:col-span-6 lg:col-start-7 space-y-8 sm:space-y-10 sticky-slide-right">
               <div>
                 <h3 className="font-display text-xl sm:text-2xl font-bold mb-3">National Curriculum Alignment</h3>
                 <p className="text-neutral-600 text-sm sm:text-base leading-relaxed">
@@ -88,7 +88,7 @@ export default function ProgramsPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-            <div>
+            <div className="sticky-fade-in">
               <h3 className="font-display text-2xl sm:text-3xl font-bold mb-2">Pre-primary</h3>
               <p className="text-neutral-500 text-sm mb-6">Class 4 to 6</p>
               <div className="space-y-4">
@@ -104,7 +104,7 @@ export default function ProgramsPage() {
               </div>
             </div>
 
-            <div>
+            <div className="sticky-fade-in">
               <h3 className="font-display text-2xl sm:text-3xl font-bold mb-2">Primary</h3>
               <p className="text-neutral-500 text-sm mb-6">Class 1 to 5</p>
               <div className="space-y-4">
@@ -117,7 +117,7 @@ export default function ProgramsPage() {
               </div>
             </div>
 
-            <div>
+            <div className="sticky-fade-in">
               <h3 className="font-display text-2xl sm:text-3xl font-bold mb-2">Secondary</h3>
               <p className="text-neutral-500 text-sm mb-6">Class 6 to 8</p>
               <div className="space-y-4">

@@ -310,7 +310,7 @@ export default function StudentsDistrictsPage() {
       <section className="py-10 sm:py-20 md:py-24 lg:py-32 bg-neutral-50">
         <div className="max-w-[1600px] mx-auto px-2 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div>
+            <div className="sticky-slide-left">
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-6">
                 <div className="w-8 sm:w-12 h-px bg-black" />
                 <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">Our Students</span>
@@ -326,7 +326,7 @@ export default function StudentsDistrictsPage() {
                 Each student brings a unique background, culture, and tradition from their home community. Together, they form a diverse monastic community united by education, Buddhist teachings, compassion, and wisdom.
               </p>
             </div>
-            <div>
+            <div className="sticky-slide-right">
               <PlaceholderImage label="Our Students" className="aspect-[4/3] w-full rounded-xl sm:rounded-3xl" />
             </div>
           </div>

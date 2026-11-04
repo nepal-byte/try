@@ -34,7 +34,7 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            <div className="lg:col-span-5 lg:sticky lg:top-28">
+            <div className="lg:col-span-5 lg:sticky lg:top-28 sticky-slide-left">
               <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <div className="w-8 sm:w-12 h-px bg-black" />
                 <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">Our Roots</span>
@@ -90,10 +90,10 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-neutral-50">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="relative">
-            <div className="float-left w-full lg:w-[45%] mr-0 lg:mr-8 xl:mr-12 mb-6 sm:mb-8">
+            <div className="float-left w-full lg:w-[45%] mr-0 lg:mr-8 xl:mr-12 mb-6 sm:mb-8 sticky-slide-left">
               <PlaceholderImage label="School Campus" className="aspect-[16/9] rounded-2xl sm:rounded-3xl" />
             </div>
-            <div>
+            <div className="sticky-slide-right">
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <div className="w-8 sm:w-12 h-px bg-black" />
                 <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">Who We Are</span>
@@ -125,13 +125,13 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-black text-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 sm:mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 sm:mb-6 sticky-fade-in">
             Want to learn more?
           </h2>
-          <p className="text-neutral-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 px-4">
+          <p className="text-neutral-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 px-4 sticky-fade-in">
             Visit our campus, meet our teachers, and discover how Tharlam Manjushree School can shape your child's future.
           </p>
-          <Link to="/contact" className="group inline-flex items-center gap-2 bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-semibold hover:bg-neutral-100 transition-all">
+          <Link to="/contact" className="group inline-flex items-center gap-2 bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-semibold hover:bg-neutral-100 transition-all sticky-scale-in">
             Contact Us
             <ArrowUpRight size={14} className="sm:w-4 sm:h-4" />
           </Link>

@@ -49,7 +49,7 @@ export default function WhatWeDoSection() {
 
   return (
     <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-neutral-50">
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="max-w-[1600px] mx-auto px-2 sm:px-6 lg:px-10">
         <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
           <div className="w-8 sm:w-12 h-px bg-black" />
           <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">What We Do</span>

@@ -18,7 +18,7 @@ export default function DonatePage() {
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-neutral-50">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div>
+            <div className="sticky-slide-left">
               <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <div className="w-8 sm:w-12 h-px bg-black" />
                 <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
@@ -34,7 +34,7 @@ export default function DonatePage() {
                 Your generous contribution helps us provide quality education, maintain our facilities, and support students from all backgrounds in their educational journey.
               </p>
             </div>
-            <div>
+            <div className="sticky-slide-right">
               <PlaceholderImage 
                 label="Students Learning" 
                 className="aspect-[16/10] w-full rounded-2xl sm:rounded-3xl" 
@@ -245,32 +245,6 @@ export default function DonatePage() {
                         >
                           {copiedField === 'intl-swift' ? <Check size={14} /> : <Copy size={14} />}
                           {copiedField === 'intl-swift' ? 'Copied' : 'Copy'}
-                        </button>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-neutral-500 text-xs uppercase tracking-wider mb-1">Bank Address</p>
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="text-neutral-900">Boudha branch</p>
-                        <button
-                          onClick={() => handleCopy('Boudha branch', 'intl-bank-address')}
-                          className="flex items-center gap-1 px-2 py-1 text-xs text-neutral-500 hover:text-black hover:bg-neutral-100 rounded transition-all"
-                        >
-                          {copiedField === 'intl-bank-address' ? <Check size={14} /> : <Copy size={14} />}
-                          {copiedField === 'intl-bank-address' ? 'Copied' : 'Copy'}
-                        </button>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-neutral-500 text-xs uppercase tracking-wider mb-1">Beneficiary Address</p>
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="text-neutral-900">Boudha-6, Kathmandu, Nepal</p>
-                        <button
-                          onClick={() => handleCopy('Boudha-6, Kathmandu, Nepal', 'intl-beneficiary-address')}
-                          className="flex items-center gap-1 px-2 py-1 text-xs text-neutral-500 hover:text-black hover:bg-neutral-100 rounded transition-all"
-                        >
-                          {copiedField === 'intl-beneficiary-address' ? <Check size={14} /> : <Copy size={14} />}
-                          {copiedField === 'intl-beneficiary-address' ? 'Copied' : 'Copy'}
                         </button>
                       </div>
                     </div>

@@ -7,15 +7,9 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-[90vh] w-full overflow-hidden mt-28">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1562774053-701939374585?w=1920&q=80"
-            alt="School Building"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
+      <section className="relative h-[90vh] w-full overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 via-neutral-700 to-neutral-900" />
+        <div className="absolute inset-0 bg-black/40" />
 
         <div className="relative z-10 h-full flex flex-col justify-center px-4 sm:px-6 lg:px-10">
           <div className="max-w-[1600px] mx-auto w-full text-center">
@@ -59,27 +53,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Marquee Strip */}
-      <section className="bg-black text-white py-4 sm:py-6 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...Array(2)].map((_, i) => (
-            <div key={i} className="flex items-center gap-6 sm:gap-12 px-4 sm:px-6">
-              {['Compassion', 'Wisdom', 'Mindfulness', 'Discipline', 'Service', 'Community', 'Excellence', 'Heritage'].map((word) => (
-                <span key={word} className="flex items-center gap-6 sm:gap-12">
-                  <span className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-tight">{word}</span>
-                  <span className="text-neutral-600">✦</span>
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Introduction Section */}
       <section className="py-12 sm:py-16 md:py-24 lg:py-32">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 sticky-slide-left">
               <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <div className="w-8 sm:w-12 h-px bg-black" />
                 <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
@@ -98,7 +76,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-6 lg:col-start-7 lg:pt-2 space-y-4 sm:space-y-6">
+            <div className="lg:col-span-6 lg:col-start-7 lg:pt-2 space-y-4 sm:space-y-6 sticky-slide-right">
               <p className="text-neutral-600 text-sm sm:text-base md:text-lg leading-relaxed">
                 Located in the heart of the historic Buddhist community in Boudha-6, Kathmandu, 
                 Tharlam Manjushree Community School provides a unique education to approximately 
@@ -143,7 +121,7 @@ export default function HomePage() {
       <section className="py-12 sm:py-16 md:py-20 bg-neutral-50">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-8 sm:mb-10">
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3 sticky-slide-left">
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <div className="w-8 sm:w-12 h-px bg-black" />
                 <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
@@ -223,18 +201,18 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-16 sm:py-24 md:py-32 bg-black text-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter mb-4 sm:mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter mb-4 sm:mb-6 sticky-fade-in">
             Begin your
             <br />
             <span className="text-neutral-500">journey with us.</span>
           </h2>
-          <p className="text-neutral-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 px-4">
+          <p className="text-neutral-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 px-4 sticky-fade-in">
             Join our community of learners and discover the path of wisdom, 
             compassion, and academic excellence.
           </p>
           <Link
             to="/admission"
-            className="group inline-flex items-center gap-2 bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-semibold hover:bg-neutral-100 transition-all"
+            className="group inline-flex items-center gap-2 bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-semibold hover:bg-neutral-100 transition-all sticky-scale-in"
           >
             Apply for Admission
             <ArrowUpRight size={14} className="sm:w-[18px] sm:h-[18px]" />

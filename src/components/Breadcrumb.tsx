@@ -9,7 +9,6 @@ const pathNames: Record<string, string> = {
   '/gallery': 'Gallery',
   '/donate': 'Donate',
   '/contact': 'Contact',
-  '/students-districts': 'Our Students',
 };
 
 export default function Breadcrumb() {
@@ -19,11 +18,11 @@ export default function Breadcrumb() {
   if (location.pathname === '/') return null;
 
   return (
-    <div className="relative h-24 xs:h-28 sm:h-36 md:h-40 lg:h-48 overflow-hidden mt-14 xs:mt-16 md:mt-20">
+    <div className="relative h-28 sm:h-36 md:h-40 lg:h-48 overflow-hidden mt-28">
       <div className="absolute inset-0 bg-neutral-200" />
       <div className="absolute inset-0 bg-black/60" />
-      <div className="relative z-10 h-full flex items-end pb-2 xs:pb-3 sm:pb-4 md:pb-5">
-        <div className="max-w-[1600px] mx-auto w-full px-3 xs:px-4 sm:px-6 lg:px-10">
+      <div className="relative z-10 h-full flex items-end pb-3 sm:pb-4 md:pb-5">
+        <div className="max-w-[1600px] mx-auto w-full px-4 sm:px-6 lg:px-10">
           <nav className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-white/70 flex-wrap">
             <Link to="/" className="flex items-center gap-1 hover:text-white transition-colors">
               <Home size={10} className="sm:w-3 sm:h-3" />

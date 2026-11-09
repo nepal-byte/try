@@ -34,28 +34,32 @@ export default function WhatGuidesSection() {
   const currentItem = guidanceItems.find(item => item.id === activeItem);
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
-      <div className="max-w-[1600px] mx-auto px-2 sm:px-6 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-10 sm:mb-12 items-center">
+    <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-neutral-50">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8 md:mb-10">
           <div>
-            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
               <div className="w-8 sm:w-12 h-px bg-black" />
-              <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">Our Guidance</span>
+              <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
+                Our Guidance
+              </span>
             </div>
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-[1.05]">
               What Guides<br /><span className="text-neutral-400">Our Practice.</span>
             </h2>
           </div>
-          <div className="flex flex-wrap gap-2 sm:gap-3 justify-start lg:justify-end">
+
+          <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-3">
             {guidanceItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => setActiveItem(item.id)}
-                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full font-display font-bold text-sm sm:text-base transition-all flex items-center justify-center ${
+                className={`w-9 h-9 sm:w-10 sm:h-10 lg:w-11 lg:h-11 rounded-full font-display font-bold text-xs sm:text-sm transition-all flex items-center justify-center ${
                   activeItem === item.id
                     ? 'bg-black text-white scale-110 shadow-lg'
                     : 'bg-white text-neutral-400 border border-neutral-200 hover:border-black hover:text-black'
                 }`}
+                title={item.title}
               >
                 {String(item.id).padStart(2, '0')}
               </button>
@@ -63,9 +67,12 @@ export default function WhatGuidesSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 sm:gap-6 items-start">
           <div className="md:col-span-2">
-            <PlaceholderImage label={currentItem?.title || ''} className="aspect-[16/9] w-full rounded-2xl sm:rounded-3xl" />
+            <PlaceholderImage 
+              label={currentItem?.title || ''} 
+              className="aspect-[16/9] w-full rounded-xl sm:rounded-2xl" 
+            />
           </div>
 
           <div className="md:col-span-3">
